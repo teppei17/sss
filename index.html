@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GRADE CALCULATOR</title>
+  <style>
+    body {
+      background-color: yellow;
+    }
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      font-family: 'GSゴシック', sans-serif;
+    }
+    .title {
+      font-size: 40px;
+      font-weight: bold;
+      color: black;
+      margin-top: 20px;
+    }
+    .input-group {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .label {
+      margin-right: 5px;
+    }
+    .select-box {
+      margin-right: 20px;
+    }
+    .button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 16px;
+      text-align: center;
+    }
+    .chart-container {
+      margin-top: 20px;
+      width: 640px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="title">～GRADE CALCULATOR～</div>
+    
+    <div class="input-group">
+      <div class="label">科目名:</div>
+      <select class="select-box" id="subjectSelect">
+        <option value="0">コンピュータシステム</option>
+        <option value="1">Critical Listening</option>
+        <option value="2">基礎論理回路</option>
+        <option value="3">データベースシステム</option>
+        <option value="4">オブジェクト指向プログラミング(2)</option>
+        <option value="5">SDPBL(2)</option>
+        <option value="6">ハードウェア記述言語</option>
+      </select>
+    </div>
+    
+    <div class="input-group">
+      <div class="label">課題:</div>
+      <select class="select-box" id="taskSelect">
+        <option value="0">0%</option>
+        <option value="1">10%</option>
+        <option value="2">20%</option>
+        <option value="3">30%</option>
+        <option value="4">40%</option>
+        <option value="5">50%</option>
+        <option value="6">60%</option>
+        <option value="7">70%</option>
+        <option value="8">80%</option>
+        <option value="9">90%</option>
+        <option value="10">100%</option>
+      </select>
+    </div>
+    
+    <div class="input-group">
+      <div class="label">テスト:</div>
+      <select class="select-box" id="testSelect">
+        <option value="0">0%</option>
+        <option value="1">10%</option>
+        <option value="2">20%</option>
+        <option value="3">30%</option>
+        <option value="4">40%</option>
+        <option value="5">50%</option>
+        <option value="6">60%</option>
+        <option value="7">70%</option>
+        <option value="8">80%</option>
+        <option value="9">90%</option>
+        <option value="10">100%</option>
+      </select>
+    </div>
+    
+    <div class="input-group">
+      <div class="label">出席:</div>
+      <select class="select-box" id="attendanceSelect">
+        <option value="0">0%</option>
+        <option value="1">10%</option>
+        <option value="2">20%</option>
+        <option value="3">30%</option>
+        <option value="4">40%</option>
+        <option value="5">50%</option>
+        <option value="6">60%</option>
+        <option value="7">70%</option>
+        <option value="8">80%</option>
+        <option value="9">90%</option>
+        <option value="10">100%</option>
+      </select>
+    </div>
+    
+    <div class="input-group">
+      <div class="label">課題個数:</div>
+      <input type="text" id="taskNumberInput" />
+    </div>
+    
+    <div class="input-group">
+      <div class="label">テストの点数:</div>
+      <input type="text" id="testScoreInput" />
+    </div>
+    
+    <div class="input-group">
+      <div class="label">出席回数:</div>
+      <input type="text" id="attendanceCountInput" />
+    </div>
+    
+    <button class="button" id="calculateButton">Calculate</button>
+    
+    <div class="result" id="resultLabel1">課題 max = ???% min = ???% half = ???%</div>
+    <div class="result" id="resultLabel2">テスト = ???%</div>
+    <div class="result" id="resultLabel3">出席 = ???%</div>
+    <div class="result" id="resultLabel4">TOTALmax = ???% TOTALmin = ???% TOTALhalf = ???%</div>
+    
+    <div class="chart-container">
+      <canvas id="gradeChart"></canvas>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    document.getElementById("calculateButton").addEventListener("click", function() {
+      // 入力値の取得
+      var subjectIndex = document.getElementById("subjectSelect").value;
+      var taskIndex = document.getElementById("taskSelect").value;
+      var testIndex = document.getElementById("testSelect").value;
+      var attendanceIndex = document.getElementById("attendanceSelect").value;
+      var taskNumber = parseInt(document.getElementById("taskNumberInput").value);
+      var testScore = parseInt(document.getElementById("testScoreInput").value);
+      var attendanceCount = parseInt(document.getElementById("attendanceCountInput").value);
+      
+      // 計算処理
+      
+      // ここでJava Swingの計算ロジックを再現
+      
+      // 結果の表示
+      document.getElementById("resultLabel1").innerText = "課題 max = ???% min = ???% half = ???%";
+      document.getElementById("resultLabel2").innerText = "テスト = ???%";
+      document.getElementById("resultLabel3").innerText = "出席 = ???%";
+      document.getElementById("resultLabel4").innerText = "TOTALmax = ???% TOTALmin = ???% TOTALhalf = ???%";
+      
+      // チャート描画処理
+      
+      // ここでチャートを描画する処理を行う（Chart.jsを利用）
+    });
+  </script>
+</body>
+</html>
